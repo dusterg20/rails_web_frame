@@ -16,7 +16,7 @@ To get started with the app, clone the repo and then install the needed gems:
 
 ```
 $ cd /path/to/repos
-$ git clone https://bitbucket.org/railstutorial/sample_app_4th_ed.git sample_app_reference
+$ git clone https://github.com/dusterg20/rails_web_frame.git sample_app_reference
 $ cd sample_app_reference
 $ bundle install --without production
 ```
@@ -61,6 +61,4 @@ $ bundle update
 
 At this point, the branch should be working. (You have to copy the `Gemfile` contents because it's incredibly hard to keep all branches up-to-date, so only the main one is guaranteed to be current.)
 
-For more information, see the
-[*Ruby on Rails Tutorial* book](http://www.railstutorial.org/book).
 # rails_web_frame
