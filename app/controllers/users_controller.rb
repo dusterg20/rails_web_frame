@@ -22,7 +22,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       @user.send_activation_email
-      flash[:info] = "Please check your email to activate your account."
+      flash[:info] = "http://localhost:3000/account_activations/#{@user.activation_token}/edit?email=#{@user.email}"
       redirect_to root_url
     else
       render 'new'
@@ -62,11 +62,11 @@ class UsersController < ApplicationController
     @users = @user.followers.paginate(page: params[:page])
     render 'show_follow'
   end
-  
+
   private
 
     def user_params
-      params.require(:user).permit(:name, :email, :password,
+      params.require(:user).permit(:name, :lname, :email, :password,
                                    :password_confirmation)
     end
 
