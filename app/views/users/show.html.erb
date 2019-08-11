@@ -4,7 +4,8 @@
     <section>
       <h1>
         <%= gravatar_for @user %>
-        <%= @user.name %> <%= @user.lname %>
+        <%= @user.name %> <%= @user.lname %><br>
+        Admin priveleges: <%= admin_priv? %>
       </h1>
     </section>
     <section class="stats">

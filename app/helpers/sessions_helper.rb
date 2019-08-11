@@ -3,6 +3,7 @@ module SessionsHelper
   # Logs in the given user.
   def log_in(user)
     session[:user_id] = user.id
+    session[:admin] = user.admin
   end
 
   # Remembers a user in a persistent session.
@@ -35,6 +36,10 @@ module SessionsHelper
     !current_user.nil?
   end
 
+  def admin_priv?
+    !session[:admin].nil?
+  end
+
   # Forgets a persistent session.
   def forget(user)
     user.forget
@@ -46,6 +51,7 @@ module SessionsHelper
   def log_out
     forget(current_user)
     session.delete(:user_id)
+    session.delete(:admin)
     @current_user = nil
   end
 
