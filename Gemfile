@@ -25,6 +25,7 @@ gem 'pg',                       '~> 1.1', '>= 1.1.4'
 gem 'bootstrap',                '~> 4.3.1'
 gem 'bootsnap',                 '>= 1.1.0', require: false
 gem 'popper_js',                '~> 1.14', '>= 1.14.5'
+gem 'nokogiri',                 '~> 1.10', '>= 1.10.4'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
