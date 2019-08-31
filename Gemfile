@@ -28,7 +28,8 @@ gem 'popper_js',                '~> 1.14', '>= 1.14.5'
 gem 'nokogiri',                 '~> 1.10', '>= 1.10.4'
 
 group :development, :test do
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+gem 'pry-rails', '~> 0.3.4'
+gem 'pry', '~> 0.12.2'
 end
 
 group :development do
