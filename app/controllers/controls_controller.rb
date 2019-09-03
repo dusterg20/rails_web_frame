@@ -16,7 +16,7 @@ class ControlsController < ApplicationController
     end
 
     mbr_led_status = Nokogiri::HTML(open(
-      "http://192.168.10.151/relaystatus.php?action=MBR_status"))
+      "http://192.168.10.151/ha_api.php?action=mbr_status"))
 
     mbr_led_status.search('p').each do |mbr|
       @mbr_result = mbr.content
