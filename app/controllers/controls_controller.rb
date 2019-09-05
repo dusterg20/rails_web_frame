@@ -1,6 +1,6 @@
 class ControlsController < ApplicationController
-    require 'nokogiri'
-    require 'open-uri'
+  require 'nokogiri'
+  require 'open-uri'
   def home
 
     linley_br_led_status = Nokogiri::HTML(open(
@@ -92,6 +92,24 @@ class ControlsController < ApplicationController
     @kitchen_day_light = kitchen_led_status
     @mbr_led = mbr_led_status
     @linley_br_led = linley_br_led_status
+
+  end
+
+  def action
+
+#    def mbr_led_toggle
+#      Nokogiri::HTML(open("http://192.168.10.151/ha_api.php?action=mbr_led"))
+#      redirect_to controls_path
+#    end
+
+    @action = params[:action_id]
+
+    if @action == "mbr_led_toggle"
+      Nokogiri::HTML(open("http://192.168.10.151/ha_api.php?action=mbr_led"))
+      redirect_to controls_path
+    end
+
+
 
   end
 end
