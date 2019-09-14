@@ -16,7 +16,7 @@ class ControlsController < ApplicationController
     end
 
     mbr_led_status = Nokogiri::HTML(open(
-      "http://192.168.10.151/ha_api.php?action=mbr_status"))
+      "http://192.168.10.151/ha_api.php?action=status&pin=26"))
 
     mbr_led_status.search('p').each do |mbr|
       @mbr_result = mbr.content
@@ -104,8 +104,8 @@ class ControlsController < ApplicationController
 
     @action = params[:action_id]
 
-    if @action == "mbr_led_toggle"
-      Nokogiri::HTML(open("http://192.168.10.151/ha_api.php?action=mbr_led"))
+    if @action == "mbr_toggle"
+      Nokogiri::HTML(open("http://192.168.10.151/ha_api.php?action=toggle&pin=26"))
       redirect_to controls_path
     end
 

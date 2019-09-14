@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  dev_name: MyString
+  dev_pi: MyString
+  dev_location: MyString
+  dev_pin_count: 1
+  dev_pin1: 1
+  dev_pin2: 1
+  dev_pin3: 1
+  dev_pin4: 1
+  dev_pin5: 1
+  dev_data: false
+  dev_data_type: MyString
+  dev_data_char: MyString
+
+two:
+  dev_name: MyString
+  dev_pi: MyString
+  dev_location: MyString
+  dev_pin_count: 1
+  dev_pin1: 1
+  dev_pin2: 1
+  dev_pin3: 1
+  dev_pin4: 1
+  dev_pin5: 1
+  dev_data: false
+  dev_data_type: MyString
+  dev_data_char: MyString

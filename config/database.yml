@@ -18,15 +18,15 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database:
+  database: home_auto
   pool: 5
-  username: dusterg20
+  username: home_auto
   password: i@20dg2k
 
 production:
   adapter: postgresql
   encoding: unicode
-  database: dusterg20
+  database: home_auto
   pool: 5
-  username: dusterg20
+  username: home_auto
   password: i@20dg2k

@@ -10,10 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_10_070058) do
+ActiveRecord::Schema.define(version: 2019_09_14_043712) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "devices", force: :cascade do |t|
+    t.string "dev_name", limit: 30
+    t.string "dev_pi", limit: 30
+    t.string "dev_location", limit: 50
+    t.integer "dev_pin_count"
+    t.integer "dev_pin1"
+    t.integer "dev_pin2"
+    t.integer "dev_pin3"
+    t.integer "dev_pin4"
+    t.integer "dev_pin5"
+    t.boolean "dev_data"
+    t.string "dev_data_type", limit: 30
+    t.string "dev_data_char", limit: 5
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["dev_name"], name: "index_devices_on_dev_name", unique: true
+  end
 
   create_table "microposts", id: :serial, force: :cascade do |t|
     t.text "content"
