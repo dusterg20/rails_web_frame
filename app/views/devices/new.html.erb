@@ -1,0 +1,46 @@
+<% provide(:title, 'Add Device') %>
+<h1>Add Device</h1>
+
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <%= form_for(@device) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+      <%= f.label :dev_name, "Device Name"%>
+      <%= f.text_field :dev_name, class: 'form-control' %>
+
+      <%= f.label :dev_pi, "Device Raspberry Pi Name" %>
+      <%= f.text_field :dev_pi, class: 'form-control' %>
+
+      <%= f.label :dev_location, "Device Location"%>
+      <%= f.text_field :dev_location, class: 'form-control' %>
+
+      <%= f.label :dev_pin_count, "Device Total Pin Count" %>
+      <%= f.text_field :dev_pin_count, class: 'form-control' %>
+
+      <%= f.label :dev_pin1, "Pin 1 Address" %>
+      <%= f.text_field :dev_pin1, class: 'form-control' %>
+
+      <%= f.label :dev_pin2, "Pin 2 Address" %>
+      <%= f.text_field :dev_pin2, class: 'form-control' %>
+
+      <%= f.label :dev_pin3, "Pin 3 Address" %>
+      <%= f.text_field :dev_pin3, class: 'form-control' %>
+
+      <%= f.label :dev_pin4, "Pin 4 Address" %>
+      <%= f.text_field :dev_pin4, class: 'form-control' %>
+
+      <%= f.label :dev_pin5, "Pin 5 Address" %>
+      <%= f.text_field :dev_pin5, class: 'form-control' %>
+
+      <%= f.label :dev_data, "Does Device Collect Data?" %>
+      <%= f.select(:dev_data, [["Yes", "true"], ["No", "false"]], :prompt => true) %>
+      <br><br>
+      <%= f.submit "Add Device", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    &nbsp;<br><br><br><br>
+  </div>
+</div>
