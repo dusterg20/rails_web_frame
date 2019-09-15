@@ -1,0 +1,25 @@
+<% provide(:title, 'Add RPI') %>
+<h1>Add Raspberry Pi</h1>
+
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <%= form_for(@rpi) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+      <%= f.label :rpi_name, "RPI Name"%>
+      <%= f.text_field :rpi_name, class: 'form-control' %>
+
+      <%= f.label :rpi_location, "Raspberry Pi Location" %>
+      <%= f.text_field :rpi_location, class: 'form-control' %>
+
+      <%= f.label :rpi_ip, "Raspberry Pi IP Address"%>
+      <%= f.text_field :rpi_ip, class: 'form-control' %>
+      <br><br>
+      <%= f.submit "Add RPI", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    &nbsp;<br><br><br><br>
+  </div>
+</div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_14_043712) do
+ActiveRecord::Schema.define(version: 2019_09_15_190148) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,15 @@ ActiveRecord::Schema.define(version: 2019_09_14_043712) do
     t.index ["followed_id"], name: "index_relationships_on_followed_id"
     t.index ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
     t.index ["follower_id"], name: "index_relationships_on_follower_id"
+  end
+
+  create_table "rpis", force: :cascade do |t|
+    t.string "rpi_name", limit: 30
+    t.string "rpi_location", limit: 100
+    t.string "rpi_ip", limit: 16
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["rpi_name"], name: "index_rpis_on_rpi_name", unique: true
   end
 
   create_table "users", id: :serial, force: :cascade do |t|

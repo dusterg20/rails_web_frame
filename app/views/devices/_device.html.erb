@@ -1,0 +1,18 @@
+<div class="row" style="height: 24px;">
+  <div class="col-sm">
+  </div>
+  <div class="col-sm pb-0 pt-0">
+    <p class="pb-0 pt-0" align="right">
+      <%= link_to("#{device.dev_name}", device) %>
+    </p>
+  </div>
+  <div class="col-sm pbt-0 pt-0">
+    <p class="pb-0 pt-0" align="left">
+      <% if admin_priv? %>
+      <%= link_to("delete", device, method: :delete, data: { confirm: "You sure?" }) %>
+      <% end %>
+    </p>
+  </div>
+  <div class="col-sm">
+  </div>
+</div>

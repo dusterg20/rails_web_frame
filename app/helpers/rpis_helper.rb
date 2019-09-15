@@ -1,0 +1,2 @@
+module RpisHelper
+end

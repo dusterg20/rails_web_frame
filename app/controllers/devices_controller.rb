@@ -1,7 +1,10 @@
+# frozen_string_literal: true
+
+
 class DevicesController < ApplicationController
 
   def index
-    @devices = Device.all
+    @devices = Device.all.paginate(page: params[:page])
   end
 
   def show

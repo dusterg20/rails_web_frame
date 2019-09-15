@@ -1,0 +1,39 @@
+<% provide(:title, @rpi.rpi_name) %>
+  <div class="row content-justify-center">
+  <div class="col-sm">
+  </div>
+  <div class="col-md-5 shadow p-3 mb-5 bg-white rounded"
+    <div class="card text-center">
+      <div class="card-header text-white bg-primary text-center">
+        <%= @rpi.rpi_name %>
+      </div>
+      <div class="card-body text-center">
+        <table class="card-table table">
+          <tr>
+            <th class="text-right">
+              Raspberry Pi Location:
+            </th>
+            <td width="20px">
+            </td>
+            <td class="text-left">
+              <%= @rpi.rpi_location %>
+            </td>
+          </tr>
+          <tr>
+            <th class="text-right">
+              Raspberry Pi IP Address:
+            </th>
+            <td width="20px">
+            </td>
+            <td class="text-left">
+              <%= @rpi.rpi_ip %>
+            </td>
+          </tr>
+        </table>
+        <a href="#!" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+    <div class="col-sm">
+    </div>
+  </div>
+</div>

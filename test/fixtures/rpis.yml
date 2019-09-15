@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  rpi_name: MyString
+  rpi_location: MyString
+  rpi_ip: 
+
+two:
+  rpi_name: MyString
+  rpi_location: MyString
+  rpi_ip: 

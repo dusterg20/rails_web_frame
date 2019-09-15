@@ -1,0 +1,114 @@
+<% provide(:title, @device.dev_name) %>
+<div class="row content-justify-center">
+  <div class="col-sm">
+  </div>
+  <div class="col-md-6 shadow p-3 mb-5 bg-white rounded"
+    <div class="card text-center">
+      <div class="card-header text-white bg-primary text-center">
+        <%= @device.dev_name %>
+      </div>
+      <div class="card-body text-center">
+        <table class="card-table table">
+          <tr>
+            <th class="text-right">
+              Device Raspberry Pi:
+            </th>
+            <td width="20px">
+            </td>
+            <td class="text-left">
+              <%= @device.dev_pi %>
+            </td>
+          </tr>
+          <tr>
+            <th class="text-right">
+              Device Location:
+            </th>
+            <td width="20px">
+            </td>
+            <td class="text-left">
+              <%= @device.dev_location %>
+            </td>
+          </tr>
+          <tr>
+            <th class="text-right">
+              Device Pin Count:
+            </th>
+            <td width="20px">
+            </td>
+            <td class="text-left">
+              <%= @device.dev_pin_count %>
+            </td>
+          </tr>
+          <tr>
+            <th class="text-right">
+              Device Pin 1 Address:
+            </th>
+            <td width="20px">
+            </td>
+            <td class="text-left">
+              <%= @device.dev_pin1 %>
+            </td>
+          </tr>
+          <tr>
+            <th class="text-right">
+              Device Pin 2 Address:
+            </th>
+            <td width="20px">
+            </td>
+            <td class="text-left">
+              <%= @device.dev_pin2 %>
+            </td>
+          </tr>
+          <tr>
+            <th class="text-right">
+              Device Pin 3 Address:
+            </th>
+            <td width="20px">
+            </td>
+            <td class="text-left">
+              <%= @device.dev_pin3 %>
+            </td>
+          </tr>
+          <tr>
+            <th class="text-right">
+              Device Pin 4 Address:
+            </th>
+            <td width="20px">
+            </td>
+            <td class="text-left">
+              <%= @device.dev_pin4 %>
+            </td>
+          </tr>
+          <tr>
+            <th class="text-right">
+              Device Pin 5 Address:
+            </th>
+            <td width="20px">
+            </td>
+            <td class="text-left">
+              <%= @device.dev_pin5 %>
+            </td>
+          </tr>
+          <tr>
+            <th class="text-right">
+              Device Data Collection?:
+            </th>
+            <td width="20px">
+            </td>
+            <td class="text-left">
+              <%= human_boolean(@device.dev_data) %>
+            </td>
+          </tr>
+        </table>
+        <a href="#!" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+    <div class="col-sm">
+    </div>
+  </div>
+</div>
+<div class="row content-justify-center">
+  <div class="col-sm">
+  <br><br><br><br>
+  </div>
+</div>
