@@ -1,25 +1,41 @@
-<% provide(:title, 'Add RPI') %>
-<h1>Add Raspberry Pi</h1>
-
-<div class="row justify-content-center">
-  <div class="col-md-6">
-    <%= form_for(@rpi) do |f| %>
-      <%= render 'shared/error_messages', object: f.object %>
-      <%= f.label :rpi_name, "RPI Name"%>
-      <%= f.text_field :rpi_name, class: 'form-control' %>
-
-      <%= f.label :rpi_location, "Raspberry Pi Location" %>
-      <%= f.text_field :rpi_location, class: 'form-control' %>
-
-      <%= f.label :rpi_ip, "Raspberry Pi IP Address"%>
-      <%= f.text_field :rpi_ip, class: 'form-control' %>
-      <br><br>
-      <%= f.submit "Add RPI", class: "btn btn-primary" %>
-    <% end %>
+<% provide(:title, "Add RPI") %>
+<div class="row content-justify-center">
+  <div class="col-sm-3">
   </div>
-</div>
-<div class="row">
-  <div class="col-md-6">
-    &nbsp;<br><br><br><br>
+  <div class="col-md-5 shadow p-3 mb-5 bg-white rounded">
+    <div class="card text-center">
+      <div class="card-header text-white bg-primary text-center">
+        <h4>Add Raspberry Pi</h4>
+      </div>
+      <div class="card-body text-center">
+        <table class="card-table table">
+          <tr>
+            <td class="text-left">
+              <%= form_for(@rpi) do |f| %>
+              <%= render 'shared/error_messages', object: f.object %>
+              <%= f.label :rpi_name, "RPI Name"%>
+              <%= f.text_field :rpi_name, class: 'form-control' %>
+            </td>
+          </tr>
+          <tr>
+            <td class="text-left">
+              <%= f.label :rpi_location, "Raspberry Pi Location" %>
+              <%= f.text_field :rpi_location, class: 'form-control' %>
+            </td>
+          </tr>
+          <tr>
+            <td class="text-left">
+              <%= f.label :rpi_ip, "Raspberry Pi IP Address"%>
+              <%= f.text_field :rpi_ip, class: 'form-control' %>
+            </td>
+          </tr>
+        </table>
+        <br><br>
+        <%= f.submit "Add RPI", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-sm">
+    </div>
   </div>
 </div>
