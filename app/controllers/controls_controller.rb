@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 class ControlsController < ApplicationController
+  before_action :auth_user, only: [:home, :edit, :update, :destroy,
+                                   :index, :create, :action]
+
   require 'nokogiri'
   require 'open-uri'
 
@@ -104,8 +107,21 @@ class ControlsController < ApplicationController
       Nokogiri::HTML(open("http://192.168.10.151/ha_api.php?action=toggle&pin=26"))
       redirect_to controls_path
     end
+  end
 
+  private
 
+  #confirms a logged in user.
+  def auth_user
+    if !current_user
+      redirect_to root_url
+    end
+  end
 
+  # Confirms an admin user.
+  def auth_admin
+    if !current_user.admin
+      redirect_back
+    end
   end
 end

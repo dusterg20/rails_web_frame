@@ -1,0 +1,41 @@
+<% provide(:title, "Update RPI") %>
+<div class="row content-justify-center">
+  <div class="col-sm-3">
+  </div>
+  <div class="col-md-5 shadow p-3 mb-5 bg-white rounded">
+    <div class="card text-center">
+      <div class="card-header text-white bg-primary text-center">
+        <h4>Update Device</h4>
+      </div>
+      <div class="card-body text-center">
+        <%= form_for(@rpi) do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>
+        <table class="card-table table">
+          <tr>
+            <td class="text-left">
+              <%= f.label :rpi_name, "Raspberry Pi Name"%>
+              <%= f.text_field :rpi_name, class: 'form-control' %>
+            </td>
+          </tr>
+          <tr>
+            <td class="text-left">
+              <%= f.label :rpi_location, "Raspberry Pi Location"%>
+              <%= f.text_field :rpi_location, class: 'form-control' %>
+            </td>
+          </tr>
+          <tr>
+            <td class="text-left">
+              <%= f.label :rpi_ip, "Raspberry Pi IP Address"%>
+              <%= f.text_field :rpi_ip, class: 'form-control' %>
+            </td>
+          </tr>
+        </table>
+        <br><br>
+        <%= f.submit "Update RPI", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-sm">
+    </div>
+  </div>
+</div>

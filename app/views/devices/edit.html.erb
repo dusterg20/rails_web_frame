@@ -8,11 +8,11 @@
         <h4>Update Device</h4>
       </div>
       <div class="card-body text-center">
+        <%= form_for(@device) do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>
         <table class="card-table table">
           <tr>
             <td class="text-left">
-              <%= form_for(@device) do |f| %>
-              <%= render 'shared/error_messages', object: f.object %>
               <%= f.label :dev_name, "Device Name"%>
               <%= f.text_field :dev_name, class: 'form-control' %>
             </td>

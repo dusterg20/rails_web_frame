@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 class RpisController < ApplicationController
+  before_action :auth_user, only: [:index, :show]
+  before_action :auth_admin, only: [:index, :show, :new, :create,
+                                   :edit, :update, :destroy]
 
   def index
     @rpis = Rpi.all.paginate(page: params[:page])
@@ -30,16 +33,37 @@ class RpisController < ApplicationController
 
   def update
     @rpi = Rpi.find(params[:id])
+    if @rpi.update_attributes(rpi_params)
+      flash[:success] = "RPI updated"
+      redirect_to rpi_path
+    else
+      render edit
+    end
   end
 
   def destroy
     Rpi.find(params[:id]).destroy
-    flash[:success] = "Device deleted"
+    flash[:success] = "RPI deleted"
+    redirect_to rpi_path
   end
 
   private
 
-    def rpi_params
-      params.require(:rpi).permit(:rpi_name, :rpi_location, :rpi_ip)
+  def rpi_params
+    params.require(:rpi).permit(:rpi_name, :rpi_location, :rpi_ip)
+  end
+
+  #confirms a logged in user.
+  def auth_user
+    if !current_user
+      redirect_to root_url
     end
+  end
+
+  # Confirms an admin user.
+  def auth_admin
+    if !current_user.admin
+      redirect_back
+    end
+  end
 end

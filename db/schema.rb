@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_15_190148) do
+ActiveRecord::Schema.define(version: 2019_09_17_161514) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,6 +58,8 @@ ActiveRecord::Schema.define(version: 2019_09_15_190148) do
     t.string "rpi_ip", limit: 16
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "device_id"
+    t.index ["device_id"], name: "index_rpis_on_device_id"
     t.index ["rpi_name"], name: "index_rpis_on_rpi_name", unique: true
   end
 
