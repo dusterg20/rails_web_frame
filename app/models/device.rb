@@ -6,4 +6,5 @@ class Device < ApplicationRecord
                                        uniqueness: { case_sensitive: false }
   validates :dev_pin1, presence: true, length: { maximum: 2 }
 
+
 end

@@ -13,53 +13,62 @@
           <tr>
             <td class="text-left">
               <%= render 'shared/error_messages', object: f.object %>
-              <%= f.input :dev_name, label: 'Device Name', error: 'Device Name Required'%>
+              <%= f.label :dev_name, "Device Name", style: 'display: block;' %>
+              <%= f.input :dev_name, label: false, error: 'Device Name Required'%>
             </td>
           </tr>
           <tr>
             <td class="text-left">
-              <%= f.association :rpi, label_method: :rpi_name, value_method: :id, include_blank: true %>
+              <%= f.label :rpi, "Device RPI", style: 'display: block;' %>
+              <%= f.association(:rpi, collection: @rpi_select, include_blank: false, label: false) %>
             </td>
           </tr>
           <tr>
             <td class="text-left">
-              <%= f.input :dev_location, label: "Device Location"%>
+              <%= f.label :dev_location, "Device Location", style: 'display: block;' %>
+              <%= f.input :dev_location, label: false %>
             </td>
           </tr>
           <tr>
             <td class="text-left">
-              <%= f.input :dev_pin_count, label: "Device Total Pin Count" %>
+              <%= f.label :dev_pin_count, "Device Total Pin Count", style: 'display: block;' %>
+              <%= f.input :dev_pin_count, label: false %>
             </td>
           </tr>
           <tr>
             <td class="text-left">
-              <%= f.input :dev_pin1, label: "Pin 1 Address" %>
+              <%= f.label :dev_pin1, "Pin 1 Address", style: 'display: block;' %>
+              <%= f.input :dev_pin1, label: false %>
             </td>
           </tr>
           <tr>
             <td class="text-left">
-              <%= f.input :dev_pin2, label: "Pin 2 Address" %>
+              <%= f.label :dev_pin2, "Pin 2 Address", style: 'display: block;' %>
+              <%= f.input :dev_pin2, label: false %>
             </td>
           </tr>
           <tr>
             <td class="text-left">
-              <%= f.input :dev_pin3, label: "Pin 3 Address" %>
+              <%= f.label :dev_pin3, "Pin 3 Address", style: 'display: block;' %>
+              <%= f.input :dev_pin3, label: false %>
             </td>
           </tr>
           <tr>
             <td class="text-left">
-              <%= f.input :dev_pin4, label: "Pin 4 Address" %>
+              <%= f.label :dev_pin4, "Pin 4 Address", style: 'display: block;' %>
+              <%= f.input :dev_pin4, label: false %>
             </td>
           </tr>
           <tr>
             <td class="text-left">
-              <%= f.input :dev_pin5, label: "Pin 5 Address" %>
+              <%= f.label :dev_pin5, "Pin 5 Address", style: 'display: block;' %>
+              <%= f.input :dev_pin5, label: false %>
             </td>
           </tr>
           <tr>
             <td class="text-left">
-
-              <%= f.input(:dev_data, label: 'Does Device Collect Data?', collection: [["Yes", "true"], ["No", "false"]], :prompt => true) %>
+              <%= f.label :dev_data, "Device Location", style: 'display: block;' %>
+              <%= f.input(:dev_data, label: false, collection: [["Yes", "true"], ["No", "false"]], :prompt => true) %>
             </td>
           </tr>
         </table>

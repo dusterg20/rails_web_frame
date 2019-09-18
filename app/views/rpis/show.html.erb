@@ -11,7 +11,7 @@
         <table class="card-table table">
           <tr>
             <th class="text-right">
-              Raspberry Pi Location:
+              Location:
             </th>
             <td width="20px">
             </td>
@@ -21,7 +21,7 @@
           </tr>
           <tr>
             <th class="text-right">
-              Raspberry Pi IP Address:
+              IP Address:
             </th>
             <td width="20px">
             </td>
@@ -30,7 +30,7 @@
             </td>
           </tr>
         </table>
-        <a href="#!" class="btn btn-primary">Go somewhere</a>
+        <%= link_to("Add New Device", new_device_path(:rpis => @rpi.id), :class=>"btn btn-primary") %>
       </div>
     </div>
     <div class="col-sm">

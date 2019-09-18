@@ -50,7 +50,7 @@ class RpisController < ApplicationController
   private
 
   def rpi_params
-    params.require(:rpi).permit(:rpi_name, :rpi_location, :rpi_ip)
+    params.require(:rpi).permit(:rpi_name, :rpi_location, :rpi_ip, :rpi_model)
   end
 
   #confirms a logged in user.

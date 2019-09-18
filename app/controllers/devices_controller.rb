@@ -11,10 +11,14 @@ class DevicesController < ApplicationController
 
   def show
     @device = Device.find(params[:id])
+    rpi = @device.rpi_id
+    @rpi = Rpi.find(rpi)
   end
 
   def new
-     @device = Device.new
+    @rpis = Rpi.find(params[:rpis])
+    @rpi_select = rpi_wrap
+    @device = Device.new
   end
 
   def create
@@ -54,6 +58,16 @@ class DevicesController < ApplicationController
     params.require(:device).permit(:dev_name, :pi_id, :dev_location, :dev_pin_count,
                   :dev_pin1, :dev_pin2, :dev_pin3, :dev_pin4,
                   :dev_pin5, :dev_data)
+  end
+
+  def rpi_wrap
+    if !@rpis
+      Rpi.all.collect do |pi|
+        [pi.rpi_name, pi.id]
+      end
+    else
+      [[@rpis.rpi_name, @rpis.id]]
+    end
   end
 
   #confirms a logged in user.
