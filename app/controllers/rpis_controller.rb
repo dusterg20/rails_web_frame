@@ -44,7 +44,7 @@ class RpisController < ApplicationController
   def destroy
     Rpi.find(params[:id]).destroy
     flash[:success] = "RPI deleted"
-    redirect_to rpi_path
+    redirect_to rpis_path
   end
 
   private

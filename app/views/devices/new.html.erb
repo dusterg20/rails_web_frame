@@ -8,67 +8,58 @@
         <h4>Add Device</h4>
       </div>
       <div class="card-body text-center">
+        <%= simple_form_for(@device, html: { class: 'form-inline' }) do |f| %>
         <table class="card-table table">
           <tr>
             <td class="text-left">
-              <%= form_for(@device) do |f| %>
               <%= render 'shared/error_messages', object: f.object %>
-              <%= f.label :dev_name, "Device Name"%>
-              <%= f.text_field :dev_name, class: 'form-control' %>
+              <%= f.input :dev_name, label: 'Device Name', error: 'Device Name Required'%>
             </td>
           </tr>
           <tr>
             <td class="text-left">
-              <%= f.label :dev_pi, "Device Raspberry Pi"%>
-              <%= f.text_field :dev_pi, class: 'form-control' %>
+              <%= f.association :rpi, label_method: :rpi_name, value_method: :id, include_blank: true %>
             </td>
           </tr>
           <tr>
             <td class="text-left">
-              <%= f.label :dev_location, "Device Location"%>
-              <%= f.text_field :dev_location, class: 'form-control' %>
+              <%= f.input :dev_location, label: "Device Location"%>
             </td>
           </tr>
           <tr>
             <td class="text-left">
-              <%= f.label :dev_pin_count, "Device Total Pin Count" %>
-              <%= f.text_field :dev_pin_count, class: 'form-control' %>
+              <%= f.input :dev_pin_count, label: "Device Total Pin Count" %>
             </td>
           </tr>
           <tr>
             <td class="text-left">
-              <%= f.label :dev_pin1, "Pin 1 Address" %>
-              <%= f.text_field :dev_pin1, class: 'form-control' %>
+              <%= f.input :dev_pin1, label: "Pin 1 Address" %>
             </td>
           </tr>
           <tr>
             <td class="text-left">
-              <%= f.label :dev_pin2, "Pin 2 Address" %>
-              <%= f.text_field :dev_pin2, class: 'form-control' %>
+              <%= f.input :dev_pin2, label: "Pin 2 Address" %>
             </td>
           </tr>
           <tr>
             <td class="text-left">
-              <%= f.label :dev_pin3, "Pin 3 Address" %>
-              <%= f.text_field :dev_pin3, class: 'form-control' %>
+              <%= f.input :dev_pin3, label: "Pin 3 Address" %>
             </td>
           </tr>
           <tr>
             <td class="text-left">
-              <%= f.label :dev_pin4, "Pin 4 Address" %>
-              <%= f.text_field :dev_pin4, class: 'form-control' %>
+              <%= f.input :dev_pin4, label: "Pin 4 Address" %>
             </td>
           </tr>
           <tr>
             <td class="text-left">
-              <%= f.label :dev_pin5, "Pin 5 Address" %>
-              <%= f.text_field :dev_pin5, class: 'form-control' %>
+              <%= f.input :dev_pin5, label: "Pin 5 Address" %>
             </td>
           </tr>
           <tr>
             <td class="text-left">
-              <%= f.label :dev_data, "Does Device Collect Data?" %>
-              <%= f.select(:dev_data, [["Yes", "true"], ["No", "false"]], :prompt => true) %>
+
+              <%= f.input(:dev_data, label: 'Does Device Collect Data?', collection: [["Yes", "true"], ["No", "false"]], :prompt => true) %>
             </td>
           </tr>
         </table>

@@ -14,11 +14,12 @@ class DevicesController < ApplicationController
   end
 
   def new
-    @device = Device.new
+     @device = Device.new
   end
 
   def create
-    @device = Device.new(device_params)
+    rpi = Rpi.find(params[:device][:rpi_id])
+    @device = rpi.devices.create(device_params)
     if @device.save
       flash[:info] = "Successfully added Device"
       redirect_to devices_path
@@ -50,7 +51,7 @@ class DevicesController < ApplicationController
   private
 
   def device_params
-    params.require(:device).permit(:dev_name, :dev_pi, :dev_location, :dev_pin_count,
+    params.require(:device).permit(:dev_name, :pi_id, :dev_location, :dev_pin_count,
                   :dev_pin1, :dev_pin2, :dev_pin3, :dev_pin4,
                   :dev_pin5, :dev_data)
   end

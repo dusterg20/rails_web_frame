@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_17_161514) do
+ActiveRecord::Schema.define(version: 2019_09_17_202110) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,7 +30,9 @@ ActiveRecord::Schema.define(version: 2019_09_17_161514) do
     t.string "dev_data_char", limit: 5
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "rpi_id"
     t.index ["dev_name"], name: "index_devices_on_dev_name", unique: true
+    t.index ["rpi_id"], name: "index_devices_on_rpi_id"
   end
 
   create_table "microposts", id: :serial, force: :cascade do |t|
@@ -80,5 +82,6 @@ ActiveRecord::Schema.define(version: 2019_09_17_161514) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "devices", "rpis"
   add_foreign_key "microposts", "users"
 end
