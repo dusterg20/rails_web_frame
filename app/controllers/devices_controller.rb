@@ -26,7 +26,7 @@ class DevicesController < ApplicationController
     @device = rpi.devices.create(device_params)
     if @device.save
       flash[:info] = "Successfully added Device"
-      redirect_to devices_path
+      redirect_to rpi_path(rpi)
     else
       render 'new'
     end
@@ -34,22 +34,26 @@ class DevicesController < ApplicationController
 
   def edit
     @device = Device.find(params[:id])
+    @rpis = Rpi.find(params:rpis])
+    @rpi_select = rpi_wrap
   end
 
   def update
+    rpi = Rpi.find(params[:device][:rpi_id])
     @device = Device.find(params[:id])
     if @device.update_attributes(device_params)
       flash[:success] = "Device updated"
-      redirect_to device_path
+      redirect_to rpi_path(rpi)
     else
       render edit
     end
   end
 
   def destroy
-    Device.find(params[:id]).destroy
+    device = Device.find(params[:id])
+    device.destroy
     flash[:success] = "Device deleted"
-    redirect_to devices_path
+    redirect_to rpi_path(device.rpi_id)
   end
 
   private
@@ -57,7 +61,7 @@ class DevicesController < ApplicationController
   def device_params
     params.require(:device).permit(:dev_name, :pi_id, :dev_location, :dev_pin_count,
                   :dev_pin1, :dev_pin2, :dev_pin3, :dev_pin4,
-                  :dev_pin5, :dev_data)
+                  :dev_pin5, :dev_data, :dev_input_signal)
   end
 
   def rpi_wrap

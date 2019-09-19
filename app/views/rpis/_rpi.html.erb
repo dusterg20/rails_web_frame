@@ -1,12 +1,13 @@
 <tr>
-  <td class="text-right">
+    <td class="text-left">
+    <% if admin_priv? %>
+    <%= link_to(delete_icon, rpi, method: :delete, data: { confirm: "You sure?" }) %>
+    <% end %>
+  </td>
+  <td class="text-center">
     <%= link_to("#{rpi.rpi_name}", rpi) %>
   </td>
   <td width="20px">
   </td>
-  <td class="text-left">
-    <% if admin_priv? %>
-    <%= link_to("delete", rpi, method: :delete, data: { confirm: "You sure?" }) %>
-    <% end %>
-  </td>
+
 </tr>

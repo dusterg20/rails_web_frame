@@ -11,6 +11,7 @@ class RpisController < ApplicationController
 
   def show
     @rpi = Rpi.find(params[:id])
+    @devices = Device.where(rpi_id: @rpi)
   end
 
   def new

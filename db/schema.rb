@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_18_142223) do
+ActiveRecord::Schema.define(version: 2019_09_23_194114) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 2019_09_18_142223) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "rpi_id"
+    t.string "dev_input_signal"
     t.index ["dev_name"], name: "index_devices_on_dev_name", unique: true
     t.index ["rpi_id"], name: "index_devices_on_rpi_id"
   end

@@ -31,6 +31,12 @@
           </tr>
           <tr>
             <td class="text-left">
+              <%= f.label :dev_input_signal, "Device Input Signaling Type", style: 'display: block;' %>
+              <%= f.input(:dev_input_signal, label: false, collection: ["Relay", "Mosfet", "DHT22"], :prompt => true) %>
+            </td>
+          </tr>
+          <tr>
+            <td class="text-left">
               <%= f.label :dev_pin_count, "Device Total Pin Count", style: 'display: block;' %>
               <%= f.input :dev_pin_count, label: false %>
             </td>
@@ -67,7 +73,7 @@
           </tr>
           <tr>
             <td class="text-left">
-              <%= f.label :dev_data, "Device Location", style: 'display: block;' %>
+              <%= f.label :dev_data, "Data Collect?", style: 'display: block;' %>
               <%= f.input(:dev_data, label: false, collection: [["Yes", "true"], ["No", "false"]], :prompt => true) %>
             </td>
           </tr>
