@@ -29,6 +29,7 @@ gem 'nokogiri',                 '~> 1.10', '>= 1.10.4'
 gem 'octicons',                 '~> 9.1', '>= 9.1.1'
 gem 'octicons_helper',          '~> 9.1', '>= 9.1.1'
 gem 'simple_form',              '~> 4.1'
+gem 'whenever',                 '~> 0.9.4', require: false
 
 group :development, :test do
 gem 'pry-rails', '~> 0.3.4'
