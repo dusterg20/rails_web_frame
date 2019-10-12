@@ -23,6 +23,8 @@
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown01">
             <%= link_to(raw("Home"), root_path, :class => "dropdown-item") %>
             <% if admin_priv? %>
+            <%= link_to(raw("New Access Control"), new_access_control_path, :class => "dropdown-item") %>
+            <%= link_to(raw("Access Controls"), access_controls_path, :class => "dropdown-item") %>
             <%= link_to(raw("Controls"), controls_path, :class => "dropdown-item") %>
             <%= link_to(raw("Raspberry's"), rpis_path, :class => "dropdown-item") %>
             <%= link_to(raw("Sign Up"), signup_path, :class => "dropdown-item") %>

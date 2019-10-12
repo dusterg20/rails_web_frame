@@ -1,0 +1,61 @@
+<% provide(:title, "Prox Badges") %>
+<div class="row">
+  <div class="col-sm-3">
+  </div>
+  <div class="col-md-6 shadow p-3 mb-5 bg-white rounded">
+    <div class="card text-center">
+      <div class="card-header text-white bg-primary text-center">
+        <h4><%= link_to(add_icon, new_access_control_path) %>&nbsp;&nbsp;Prox Badges</h4>
+      </div>
+      <div class="card-body text-center">
+        <table class="card-table table">
+          <tr>
+            <th class="text-left">
+            </th>
+            <th class="text-center">
+              ID:
+            </th>
+            <th class="text-center">
+              Name:
+            </th>
+            <th class="text-center">
+              Access Level:
+            </th>
+            <th class="text-center">
+              Access Code:
+            </th>
+          </tr>
+          <% @access_controls.order(:id).each  do |access| %>
+            <tr>
+              <td class="text-left">
+              <% if admin_priv? %>
+              <%= link_to(delete_icon, access_control_path(access.id), method: :delete, data: { confirm: "You sure?" }) %>
+              <% end %>
+              </td>
+              <td class="text-center">
+                <%= link_to("#{access.id}", access_control_path(access.id)) %>
+              </td>
+              <td class="text-center">
+                <%= access.user_first_name %>&nbsp;<%= access.user_last_name %>
+              </td>
+              <td class="text-center">
+                <%= access.access_level %>
+              </td>
+              <td class="text-center">
+                <%= access.key_code %>
+              </td>
+            </tr>
+          <% end %>
+        </table>
+      </div>
+      <div class="col-sm">
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row content-justify-center">
+  <div class="col-sm">
+  <br><br><br><br>
+  </div>
+</div>
+

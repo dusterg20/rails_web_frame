@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_23_194114) do
+ActiveRecord::Schema.define(version: 2019_10_12_020145) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "access_controls", force: :cascade do |t|
+    t.string "user_first_name"
+    t.string "user_last_name"
+    t.string "key_code"
+    t.string "access_level"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["key_code"], name: "index_access_controls_on_key_code", unique: true
+  end
 
   create_table "devices", force: :cascade do |t|
     t.string "dev_name", limit: 30
