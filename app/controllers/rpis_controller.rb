@@ -38,7 +38,7 @@ class RpisController < ApplicationController
       flash[:success] = "RPI updated"
       redirect_to rpi_path
     else
-      render edit
+      render 'edit'
     end
   end
 

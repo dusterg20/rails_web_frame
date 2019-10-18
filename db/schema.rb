@@ -10,10 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_12_020145) do
+ActiveRecord::Schema.define(version: 2019_10_18_045309) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "access_control_doors", force: :cascade do |t|
+    t.string "name"
+    t.string "location"
+    t.string "description"
+    t.string "reader_manuf"
+    t.string "reader_model"
+    t.string "reader_serial"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_access_control_doors_on_name"
+    t.index ["reader_serial"], name: "index_access_control_doors_on_reader_serial", unique: true
+  end
 
   create_table "access_controls", force: :cascade do |t|
     t.string "user_first_name"
@@ -22,7 +35,28 @@ ActiveRecord::Schema.define(version: 2019_10_12_020145) do
     t.string "access_level"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "description"
+    t.string "office_number"
+    t.string "badge_holder_phone"
+    t.string "badge_holder_email"
+    t.index ["description"], name: "index_access_controls_on_description", unique: true
     t.index ["key_code"], name: "index_access_controls_on_key_code", unique: true
+  end
+
+  create_table "access_permissions", force: :cascade do |t|
+    t.bigint "access_control_id"
+    t.bigint "access_control_door_id"
+    t.time "sunday"
+    t.time "monday"
+    t.time "tuesday"
+    t.time "wednesday"
+    t.time "thursday"
+    t.time "friday"
+    t.time "saturday"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["access_control_door_id"], name: "index_access_permissions_on_access_control_door_id"
+    t.index ["access_control_id"], name: "index_access_permissions_on_access_control_id"
   end
 
   create_table "devices", force: :cascade do |t|

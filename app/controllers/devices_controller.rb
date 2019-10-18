@@ -45,7 +45,7 @@ class DevicesController < ApplicationController
       flash[:success] = "Device updated"
       redirect_to rpi_path(rpi)
     else
-      render edit
+      render 'edit'
     end
   end
 

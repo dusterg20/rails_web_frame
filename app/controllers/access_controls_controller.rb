@@ -9,6 +9,7 @@ class AccessControlsController < ApplicationController
   end
 
   def show
+    @access_control = AccessControl.find(params[:id])
   end
 
   def new
@@ -26,6 +27,17 @@ class AccessControlsController < ApplicationController
   end
 
   def edit
+    @access_control = AccessControl.find(params[:id])
+  end
+
+  def update
+    @access_control = AccessControl.find(params[:id])
+    if @access_control.update_attributes(access_control_params)
+      flash[:success] = "Badge updated"
+      redirect_to access_control_path
+    else
+      render 'edit'
+    end
   end
 
   def destroy
@@ -37,8 +49,9 @@ class AccessControlsController < ApplicationController
   private
 
   def access_control_params
-    params.require(:access_control).permit(:user_first_name, :user_last_name,
-                                           :key_code, :access_level)
+    params.require(:access_control).
+      permit(:user_first_name, :user_last_name, :description, :office_number,
+             :badge_holder_phone, :badge_holder_email, :key_code, :access_level)
   end
 
   #confirms a logged in user.

@@ -25,6 +25,30 @@
           </tr>
           <tr>
             <td class="text-left">
+              <%= f.label :description, "Badge Description", style: 'display: block;' %>
+              <%= f.input :description, label: false, error: 'Badge Description Required'%>
+            </td>
+          </tr>
+          <tr>
+            <td class="text-left">
+              <%= f.label :office_number, "Badge Holder Office Number", style: 'display: block;' %>
+              <%= f.input :office_number, label: false%>
+            </td>
+          </tr>
+          <tr>
+            <td class="text-left">
+              <%= f.label :badge_holder_phone, "Badge Holder Phone Number", style: 'display: block;' %>
+              <%= f.input :badge_holder_phone, label: false, error: 'Badge Holder Phone Number Required'%>
+            </td>
+          </tr>
+          <tr>
+            <td class="text-left">
+              <%= f.label :badge_holder_email, "Badge Holder Email", style: 'display: block;' %>
+              <%= f.input :badge_holder_email, label: false, error: 'Badge Holder Email Required'%>
+            </td>
+          </tr>
+          <tr>
+            <td class="text-left">
               <%= f.label :key_code, "Prox Card Code", style: 'display: block;' %>
               <%= f.input :key_code, label: false, error: 'Code Required' %>
             </td>

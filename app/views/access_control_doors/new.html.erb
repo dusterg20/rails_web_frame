@@ -1,0 +1,57 @@
+<% provide(:title, "Add Door") %>
+<div class="row content-justify-center">
+  <div class="col-sm-3">
+  </div>
+  <div class="col-md-5 shadow p-3 mb-5 bg-white rounded">
+    <div class="card text-center">
+      <div class="card-header text-white bg-primary text-center">
+        <h4>Add Door</h4>
+      </div>
+      <div class="card-body text-center">
+        <%= simple_form_for(@access_control_door, html: { class: 'form-inline' }) do |f| %>
+        <table class="card-table table">
+          <tr>
+            <td class="text-left">
+              <%= render 'shared/error_messages', object: f.object %>
+              <%= f.label :name, "Door Name", style: 'display: block;' %>
+              <%= f.input :name, label: false, error: 'Door Name Required'%>
+            </td>
+          </tr>
+          <tr>
+            <td class="text-left">
+              <%= f.label :location, "Door Location", style: 'display: block;' %>
+              <%= f.input :location, label: false, error: 'Door Location Required'%>
+            </td>
+          </tr>
+          <tr>
+            <td class="text-left">
+              <%= f.label :description, "Door Description", style: 'display: block;' %>
+              <%= f.input :description, label: false %>
+            </td>
+          </tr>
+          <tr>
+            <td class="text-left">
+              <%= f.label :reader_manuf, "Prox Reader Manufacturer", style: 'display: block;' %>
+              <%= f.input(:reader_manuf, label: false, collection: ["HID", "Genereic"], :prompt => false) %>
+            </td>
+          </tr><tr>
+            <td class="text-left">
+              <%= f.label :reader_model, "Prox Reader Model", style: 'display: block;' %>
+              <%= f.input :reader_model, label: false, error: 'Prox Reader Model Required'%>
+            </td>
+          </tr><tr>
+            <td class="text-left">
+              <%= f.label :reader_serial, "Prox Reader Serial Number", style: 'display: block;' %>
+              <%= f.input :reader_serial, label: false, error: 'Prox Reader Serial Number Required'%>
+            </td>
+          </tr>
+        </table>
+        <br><br>
+        <%= f.submit "Add Door", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-sm">
+    </div>
+  </div>
+</div>
