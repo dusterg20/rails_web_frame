@@ -1,2 +1,299 @@
-<h1>AccessPermissions#new</h1>
-<p>Find me in app/views/access_permissions/new.html.erb</p>
+<% provide(:title, "Add an Access Permission") %>
+<div class="row content-justify-center">
+  <div class="col-sm-3">
+  </div>
+  <div class="col-md-5 shadow p-3 mb-5 bg-white rounded">
+    <div class="card text-center">
+      <div class="card-header text-white bg-primary text-center">
+        <h4>Add Card Access Permission</h4>
+      </div>
+      <div class="card-body text-center">
+        <%= simple_form_for(@access_permission, html: { class: 'form-inline' }) do |f| %>
+        <table class="card-table table">
+          <tr>
+            <td class="text-left">
+              <%= render 'shared/error_messages', object: f.object %>
+              <%= f.label(
+                    :access_control_id,
+                    "Prox Badge",
+                    style: 'display: block;'
+                  )
+               %>
+              <%= f.input(
+                    :access_control_id,
+                    input_html: { value: @access_control.id },
+                    readonly: true,
+                    label:false,
+                    error: 'Badge ID Required'
+                  )
+              %>
+            </td>
+          </tr>
+          <tr>
+            <td class="text-left">
+              <%= f.label(
+                    :access_control_door_id,
+                    "Select Door",
+                    style: 'display: block;'
+                  )
+              %>
+              <%= f.association(
+                    :access_control_door,
+                    collection: @access_control_door_select,
+                    include_blank: false,
+                    label: false,
+                    error: 'Door Required'
+                  )
+              %>
+            </td>
+          </tr>
+          <tr>
+            <td class="text-left">
+              <%= f.label(
+                    :sunday,
+                    "Sunday Start Time",
+                    style: 'display: block;'
+                  )
+              %>
+              <%= f.input(
+                    :sunday,
+                    as: :time,
+                    default: @midnight,
+                    label: false,
+                    error: 'Sunday Start Time Required'
+                  )
+              %>
+            </td>
+            <td class="text-left">
+              <%= f.label(
+                    :sunday_end,
+                    "Sunday End Time",
+                    style: 'display: block;'
+                  )
+              %>
+              <%= f.input(
+                    :sunday_end,
+                    as: :time,
+                    default: @end_of_day,
+                    label: false,
+                    error: 'Sunday End Time Required'
+                  )
+              %>
+            </td>
+          </tr>
+          <tr>
+            <td class="text-left">
+              <%= f.label(
+                    :monday,
+                    "Monday Start Time",
+                    style: 'display: block;'
+                  )
+              %>
+              <%= f.input(
+                    :monday,
+                    as: :time,
+                    default: @midnight,
+                    label: false,
+                    error: 'Monday Start Time Required'
+                  )
+              %>
+            </td>
+            <td class="text-left">
+              <%= f.label(
+                    :monday_end,
+                    "Monday End Time",
+                    style: 'display: block;'
+                  )
+              %>
+              <%= f.input(
+                    :monday_end,
+                    as: :time,
+                    default: @end_of_day,
+                    label: false,
+                    error: 'Monday End Time Required'
+                  )
+              %>
+            </td>
+          </tr>
+          <tr>
+            <td class="text-left">
+              <%= f.label(
+                    :tuesday,
+                    "Tuesday Start Time",
+                    style:
+                    'display: block;'
+                  )
+              %>
+              <%= f.input(
+                    :tuesday,
+                    as: :time,
+                    default: @midnight,
+                    label: false,
+                    error: 'Tuesday Start Time Required'
+                  )
+              %>
+            </td>
+            <td class="text-left">
+              <%= f.label(
+                    :tuesday_end,
+                    "Tuesday End Time",
+                    style: 'display: block;'
+                  )
+              %>
+              <%= f.input(
+                    :tuesday_end,
+                    as: :time,
+                    default: @end_of_day,
+                    label: false,
+                    error: 'Tuesday End Time Required'
+                  )
+              %>
+            </td>
+          </tr>
+          <tr>
+            <td class="text-left">
+              <%= f.label(
+                    :wednesday,
+                    "Wednesday Start Time",
+                    style: 'display: block;'
+                  )
+              %>
+              <%= f.input(
+                    :wednesday,
+                    as: :time,
+                    default: @midnight,
+                    label: false,
+                    error: 'Wednesday Start Time Required'
+                  )
+              %>
+            </td>
+            <td class="text-left">
+              <%= f.label(
+                    :wednesday_end,
+                    "Wednesday End Time",
+                    style: 'display: block;'
+                  )
+              %>
+              <%= f.input(
+                    :wednesday_end,
+                    as: :time,
+                    default: @end_of_day,
+                    label: false,
+                    error: 'Wednesday End Time Required'
+                  )
+              %>
+            </td>
+          </tr>
+          <tr>
+            <td class="text-left">
+              <%= f.label(
+                    :thursday,
+                    "Thursday Start Time",
+                    style: 'display: block;'
+                  )
+              %>
+              <%= f.input(
+                    :thursday,
+                    as: :time,
+                    default: @midnight,
+                    label: false,
+                    error: 'Thursday Start Time Required'
+                  )
+              %>
+            </td>
+            <td class="text-left">
+              <%= f.label(
+                    :thursday_end,
+                    "Thursday End Time",
+                    style: 'display: block;'
+                  )
+              %>
+              <%= f.input(
+                    :thursday_end,
+                    as: :time,
+                    default: @end_of_day,
+                    label: false,
+                    error: 'Thursday End Time Required'
+                  )
+              %>
+            </td>
+          </tr>
+          <tr>
+            <td class="text-left">
+              <%= f.label(
+                    :friday,
+                    "Friday Start Time",
+                    style: 'display: block;'
+                  )
+              %>
+              <%= f.input(
+                    :friday,
+                    as: :time,
+                    default: @midnight,
+                    label: false,
+                    error: 'Friday Start Time Required'
+                )
+              %>
+            </td>
+            <td class="text-left">
+              <%= f.label(
+                    :friday_end,
+                    "Friday End Time",
+                    style: 'display: block;'
+                )
+              %>
+              <%= f.input(
+                    :friday_end,
+                    as: :time,
+                    default: @end_of_day,
+                    label: false,
+                    error: 'Friday End Time Required'
+                )
+              %>
+            </td>
+          </tr>
+          <tr>
+            <td class="text-left">
+              <%= f.label(
+                    :saturday,
+                    "Saturday Start Time",
+                    style: 'display: block;'
+                )
+              %>
+              <%= f.input(
+                    :saturday,
+                    as: :time,
+                    default: @midnight,
+                    label: false,
+                    error: 'Saturday Start Time Required'
+                )
+              %>
+            </td>
+            <td class="text-left">
+              <%= f.label(
+                    :saturday_end,
+                    "Saturday End Time",
+                    style: 'display: block;'
+                )
+              %>
+              <%= f.input(
+                    :saturday_end,
+                    as: :time,
+                    default: @end_of_day,
+                    label: false,
+                    error: 'Saturday End Time Required'
+                )
+              %>
+            </td>
+          </tr>
+        </table>
+        <br><br>
+        <%= f.submit "Add Permission", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-sm">
+    </div>
+  </div>
+</div>
+

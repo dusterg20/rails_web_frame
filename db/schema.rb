@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_18_045309) do
+ActiveRecord::Schema.define(version: 2019_11_02_011608) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,6 +55,13 @@ ActiveRecord::Schema.define(version: 2019_10_18_045309) do
     t.time "saturday"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.time "sunday_end"
+    t.time "monday_end"
+    t.time "tuesday_end"
+    t.time "wednesday_end"
+    t.time "thursday_end"
+    t.time "friday_end"
+    t.time "saturday_end"
     t.index ["access_control_door_id"], name: "index_access_permissions_on_access_control_door_id"
     t.index ["access_control_id"], name: "index_access_permissions_on_access_control_id"
   end

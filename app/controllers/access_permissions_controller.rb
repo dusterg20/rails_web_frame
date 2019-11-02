@@ -13,10 +13,14 @@ class AccessPermissionsController < ApplicationController
 
   def new
     @access_permission = AccessPermission.new
+    @access_control = AccessControl.find(params[:access_control])
+    @access_control_door_select = access_control_door_wrap
+    @midnight = Time.parse('00:00')
+    @end_of_day = Time.parse('23:59')
   end
 
   def create
-    @access_permission = AccessPermission.new(access_permission_params)
+    @access_permission = AccessPermission.create(access_permission_params)
     if @access_permission.save
       flash[:info] = "Successfully added Access Permission"
       redirect_to access_permissions_path
@@ -47,11 +51,35 @@ class AccessPermissionsController < ApplicationController
 
   private
 
-  def access_permisssion_params
-    params.require(:access_permission).
-      permit(:access_control_id, :access_control_door_id, :sunday, :monday,
-                                           :tuesday, :wednesday, :thursday,
-                                           :friday, :saturday)
+  def access_permission_params
+    params.require(:access_permission).permit(
+      :access_control_id,
+      :access_control_door_id,
+      :sunday,
+      :monday,
+      :tuesday,
+      :wednesday,
+      :thursday,
+      :friday,
+      :saturday,
+      :sunday_end,
+      :monday_end,
+      :tuesday_end,
+      :wednesday_end,
+      :thursday_end,
+      :friday_end,
+      :saturday_end
+    )
+  end
+
+  def access_control_door_wrap
+    if !@access_control
+      AccessControlDoor.all.collect do |door|
+        [door.name, door.id]
+      end
+    else
+      [[@access_control.user_first_name, @access_control.id]]
+    end
   end
 
   #confirms a logged in user.

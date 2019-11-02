@@ -34,7 +34,7 @@ class DevicesController < ApplicationController
 
   def edit
     @device = Device.find(params[:id])
-    @rpis = Rpi.find(params:rpis])
+    @rpis = Rpi.find(params[:rpis])
     @rpi_select = rpi_wrap
   end
 

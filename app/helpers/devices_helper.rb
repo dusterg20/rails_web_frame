@@ -2,5 +2,4 @@
 
 module DevicesHelper
 
-
 end
