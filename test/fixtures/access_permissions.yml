@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  access_control_id: 1
+  access_control_door_id: 1
+  sunday: 2019-10-17 21:05:07
+  monday: 2019-10-17 21:05:07
+  tuesday: 2019-10-17 21:05:07
+  wednesday: 2019-10-17 21:05:07
+  thursday: 2019-10-17 21:05:07
+  friday: 2019-10-17 21:05:07
+  saturday: 2019-10-17 21:05:07
+
+two:
+  access_control_id: 1
+  access_control_door_id: 1
+  sunday: 2019-10-17 21:05:07
+  monday: 2019-10-17 21:05:07
+  tuesday: 2019-10-17 21:05:07
+  wednesday: 2019-10-17 21:05:07
+  thursday: 2019-10-17 21:05:07
+  friday: 2019-10-17 21:05:07
+  saturday: 2019-10-17 21:05:07

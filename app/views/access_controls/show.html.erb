@@ -1,0 +1,69 @@
+<% provide(:title, @access_control.key_code) %>
+<div class="row content-justify-center">
+  <div class="col-sm-3">
+  </div>
+  <div class="col-md-5 shadow p-3 mb-5 bg-white rounded">
+    <div class="card text-center">
+      <div class="card-header text-white bg-primary text-center">
+        <h4><%= link_to(edit_icon, edit_access_control_path) %>&nbsp;&nbsp;<%= @access_control.key_code %></h4>
+      </div>
+      <div class="card-body text-center">
+        <table class="card-table table">
+          <tr>
+            <td class="text-left">
+              First Name:<br>
+              <input type="text" class="form-control form-control-lg" value="<%= @access_control.user_first_name %>">
+            </td>
+          </tr>
+          <tr>
+            <td class="text-left">
+              Last Name:<br>
+              <input type="text" class="form-control form-control-lg" value="<%= @access_control.user_last_name %>">
+            </td>
+          </tr>
+          <tr>
+            <td class="text-left">
+              Card Description:<br>
+              <input type="text" class="form-control form-control-lg" value="<%= @access_control.description %>">
+            </td>
+          </tr>
+          <tr>
+            <td class="text-left">
+              Office Number:<br>
+              <input type="text" class="form-control form-control-lg" value="<%= @access_control.office_number %>">
+            </td>
+          </tr>
+          <tr>
+            <td class="text-left">
+              Phone Number:<br>
+              <input type="text" class="form-control form-control-lg" value="<%= @access_control.badge_holder_phone %>">
+            </td>
+          </tr>
+          <tr>
+            <td class="text-left">
+              Email Address:<br>
+              <input type="text" class="form-control form-control-lg" value="<%= @access_control.badge_holder_email %>">
+            </td>
+          </tr>
+          <tr>
+            <td class="text-left">
+              Badge Key Code:<br>
+              <input type="text" class="form-control form-control-lg" value="<%= @access_control.key_code %>">
+            </td>
+          </tr>
+          <tr>
+            <td class="text-left">
+              <div class="form_group">
+                <label for="access_level">Access Level:</label>
+                <input type:"text" class="form-control form-control-lg" id="access_level" value="<%= @access_control.access_level %>">
+              </div>
+            </td>
+          </tr>
+        </table>
+        <br><br>
+      </div>
+    </div>
+    <div class="col-sm">
+    </div>
+  </div>
+</div>

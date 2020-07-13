@@ -1,0 +1,48 @@
+<% provide(:title, "Add RPI") %>
+<div class="row content-justify-center">
+  <div class="col-sm-3">
+  </div>
+  <div class="col-md-5 shadow p-3 mb-5 bg-white rounded">
+    <div class="card text-center">
+      <div class="card-header text-white bg-primary text-center">
+        <h4>Add Raspberry Pi</h4>
+      </div>
+      <div class="card-body text-center">
+        <%= simple_form_for(@rpi, html: { class: 'form-inline' }) do |f| %>
+        <table class="card-table table">
+          <tr>
+            <td class="text-left">
+              <%= render 'shared/error_messages', object: f.object %>
+              <%= f.label :rpi_name, "Name", style: 'display: block;'%>
+              <%= f.input :rpi_name, label: false, error: 'Name Required' %>
+            </td>
+          </tr>
+          <tr>
+            <td class="text-left">
+              <%= f.label :rpi_model, "Model", style: 'display: block;'%>
+              <%= f.input :rpi_model, label: false, collection: rpi_models,
+                :prompt => true %>
+            </td>
+          </tr>
+          <tr>
+            <td class="text-left">
+               <%= f.label :rpi_location, "Location", style: 'display: block;'%>
+              <%= f.input :rpi_location, label: false %>
+            </td>
+          </tr>
+          <tr>
+            <td class="text-left">
+               <%= f.label :rpi_ip, "IP Address", style: 'display: block;'%>
+              <%= f.input :rpi_ip, label: false, error: 'IP Address Required' %>
+            </td>
+          </tr>
+        </table>
+        <br><br>
+        <%= f.submit "Add RPI", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-sm">
+    </div>
+  </div>
+</div>

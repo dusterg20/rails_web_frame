@@ -1,0 +1,12 @@
+<tr>
+  <td width="60%" class="text-right">
+    <%= link_to("#{device.dev_name}", device) %>
+  </td>
+  <td width="20px">
+  </td>
+  <td class="text-left">
+    <% if admin_priv? %>
+    <%= link_to("delete", device, method: :delete, data: { confirm: "You sure?" }) %>
+    <% end %>
+  </td>
+</tr>

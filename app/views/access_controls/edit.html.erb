@@ -1,0 +1,71 @@
+<% provide(:title, "Edit "+@access_control.key_code) %>
+<div class="row content-justify-center">
+  <div class="col-sm-3">
+  </div>
+  <div class="col-md-5 shadow p-3 mb-5 bg-white rounded">
+    <div class="card text-center">
+      <div class="card-header text-white bg-primary text-center">
+        <h4>Edit <%= @access_control.key_code %></h4>
+      </div>
+      <div class="card-body text-center">
+        <%= simple_form_for(@access_control, html: { class: 'form-inline' }) do |f| %>
+        <table class="card-table table">
+          <tr>
+            <td class="text-left">
+              <%= render 'shared/error_messages', object: f.object %>
+              <%= f.label :user_first_name, "First name", style: 'display: block;' %>
+              <%= f.input :user_first_name, label: false, error: 'First Name Required'%>
+            </td>
+          </tr>
+          <tr>
+            <td class="text-left">
+              <%= f.label :user_last_name, "Last name", style: 'display: block;' %>
+              <%= f.input :user_last_name, label: false, error: 'Last Name Required'%>
+            </td>
+          </tr>
+          <tr>
+            <td class="text-left">
+              <%= f.label :description, "Badge Description", style: 'display: block;' %>
+              <%= f.input :description, label: false, error: 'Badge Description Required'%>
+            </td>
+          </tr>
+          <tr>
+            <td class="text-left">
+              <%= f.label :office_number, "Badge Holder Office Number", style: 'display: block;' %>
+              <%= f.input :office_number, label: false%>
+            </td>
+          </tr>
+          <tr>
+            <td class="text-left">
+              <%= f.label :badge_holder_phone, "Badge Holder Phone Number", style: 'display: block;' %>
+              <%= f.input :badge_holder_phone, label: false, error: 'Badge Holder Phone Number Required'%>
+            </td>
+          </tr>
+          <tr>
+            <td class="text-left">
+              <%= f.label :badge_holder_email, "Badge Holder Email", style: 'display: block;' %>
+              <%= f.input :badge_holder_email, label: false, error: 'Badge Holder Email Required'%>
+            </td>
+          </tr>
+          <tr>
+            <td class="text-left">
+              <%= f.label :key_code, "Prox Card Code", style: 'display: block;' %>
+              <%= f.input :key_code, label: false, error: 'Code Required' %>
+            </td>
+          </tr>
+          <tr>
+            <td class="text-left">
+              <%= f.label :access_level, "Access Priveleges", style: 'display: block;' %>
+              <%= f.input(:access_level, label: false, collection: ["Full", "Limited", "Temp"], :prompt => false) %>
+            </td>
+          </tr>
+        </table>
+        <br><br>
+        <%= f.submit "Update Proximity Card", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-sm">
+    </div>
+  </div>
+</div>

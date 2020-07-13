@@ -1,0 +1,56 @@
+<% provide(:title, @door.name) %>
+<div class="row content-justify-center">
+  <div class="col-sm-3">
+  </div>
+  <div class="col-md-5 shadow p-3 mb-5 bg-white rounded">
+    <div class="card text-center">
+      <div class="card-header text-white bg-primary text-center">
+        <h4><%= link_to(edit_icon, edit_access_control_door_path) %>&nbsp;&nbsp;<%= @door.name %></h4>
+      </div>
+      <div class="card-body text-center">
+        <table class="card-table table">
+          <tr>
+            <td class="text-left">
+              Door Name:<br>
+              <input type="text" class="form-control form-control-lg" value="<%= @door.name %>">
+            </td>
+          </tr>
+          <tr>
+            <td class="text-left">
+              Door Location:<br>
+              <input type="text" class="form-control form-control-lg" value="<%= @door.location %>">
+            </td>
+          </tr>
+          <tr>
+            <td class="text-left">
+              <div class="form_group">
+                <label for="description">Door Description:</label>
+                <textarea class="form-control form-control-lg" rows="3" id="description"><%= @door.description %>
+                </textarea>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="text-left">
+              Prox Reader Manufacturer:<br>
+              <input type="text" class="form-control form-control-lg" value="<%= @door.reader_manuf %>">
+            </td>
+          </tr><tr>
+            <td class="text-left">
+              Prox Reader Model:<br>
+              <input type="text" class="form-control form-control-lg" value="<%= @door.reader_model %>">
+            </td>
+          </tr><tr>
+            <td class="text-left">
+              Prox Reader Serial Number:<br>
+              <input type="text" class="form-control form-control-lg" value="<%= @door.reader_serial %>">
+            </td>
+          </tr>
+        </table>
+        <br><br>
+      </div>
+    </div>
+    <div class="col-sm">
+    </div>
+  </div>
+</div>

@@ -1,0 +1,146 @@
+<% provide(:title, @rpi.rpi_name) %>
+<div class="d-flex justify-content-center">
+  <div class="card shadow p-3 mb-5 bg-white rounded">
+    <div class="card-header text-center text-white bg-primary">
+      <div class="flex-column content-justify-center">
+        <h4 align="center">
+          <%= link_to(edit_icon, edit_rpi_path) %>
+          &nbsp;&nbsp;
+          <%= @rpi.rpi_name %>
+        </h4>
+      </div>
+    </div>
+    <div class="card-body text-center">
+      <div class="d-md-flex">
+        <table class="card-table table">
+          <div class="d-flex flex-row">
+            <tr>
+              <th class="text-right">
+                Location:
+              </th>
+              <td width="20px">
+              </td>
+              <td class="text-left">
+                <%= @rpi.rpi_location %>
+              </td>
+            </tr>
+            <tr>
+              <th class="text-right">
+                IP Address:
+              </th>
+              <td width="20px">
+              </td>
+              <td class="text-left">
+                <%= @rpi.rpi_ip %>
+              </td>
+            </tr>
+            <tr>
+              <th class="text-right">
+                Version:
+              </th>
+              <td width="20px">
+              </td>
+              <td class="text-left">
+                <%= @rpi.rpi_model %>
+              </td>
+            </tr>
+          </div>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="card shadow p-3 mb-5 bg-white rounded">
+  <div class="card-header text-center text-white bg-primary">
+    <h4>
+      <%= link_to(add_icon, new_device_path(:rpis => @rpi.id)) %>
+      &nbsp;&nbsp;
+      <%= @rpi.rpi_name %> Devices
+    </h4>
+  </div>
+  <div class="card-body text-center">
+    <div class="d-lg-flex">
+      <table width="100%" class="table table-striped">
+       <div class="d-flex flex-row">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">
+              Action
+            </th>
+            <th scope="col">
+              Name
+            </th>
+            <th scope="col">
+              Location
+            </th>
+            <th scope="col">
+              Input Type
+            </th>
+            <th scope="col">
+              Pin Count
+            </th>
+            <th scope="col">
+              Pin 1
+            </th>
+            <th scope="col">
+              Pin 2
+            </th>
+            <th scope="col">
+              Pin 3
+           </th>
+            <th scope="col">
+              Pin 4
+            </th>
+            <th scope="col">
+              Pin 5
+            </th>
+            <th scope="col">
+              Data Recorded?
+            </th>
+          </tr>
+      </thead>
+      </div>
+      <div class="d-flex flex-row">
+        <% @devices.order(:dev_name).each  do |dev| %>
+        <tr>
+          <td>
+            <%= link_to(delete_icon, device_path(dev.id), method: :delete, data: { confirm: "You sure?" }) %>&nbsp;
+            <%= link_to(edit_icon, edit_device_path(:id => dev.id, :rpis => @rpi.id)) %>
+          </td>
+          <td>
+            <%= dev.dev_name %>
+          </td>
+          <td>
+            <%= dev.dev_location %>
+          </td>
+          <td>
+            <%= dev.dev_input_signal %>
+          </td>
+          <td>
+            <%= dev.dev_pin_count %>
+          </td>
+          <td>
+            <%= dev.dev_pin1 %>
+          </td>
+          <td>
+            <%= dev.dev_pin2 %>
+          </td>
+          <td>
+            <%= dev.dev_pin3 %>
+          </td>
+          <td>
+            <%= dev.dev_pin4 %>
+          </td>
+          <td>
+            <%= dev.dev_pin5 %>
+          </td>
+          <td>
+            <%= dev.dev_data %>
+          </td>
+        </tr>
+        <% end %>
+      </div>
+    </table>
+    </div>
+  </div>
+</div>

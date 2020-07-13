@@ -1,0 +1,26 @@
+<% provide(:title, "Pi's") %>
+<div class="row">
+  <div class="col-sm-3">
+  </div>
+  <div class="col-md-5 shadow p-3 mb-5 bg-white rounded">
+    <div class="card text-center">
+      <div class="card-header text-white bg-primary text-center">
+        <h4><%= link_to(add_icon, new_rpi_path) %>&nbsp;&nbsp;Raspberry Pi's</h4>
+      </div>
+      <div class="card-body text-center">
+        <table class="card-table table">
+          <%= will_paginate %>
+          <%= render @rpis %>
+          <%= will_paginate %>
+        </table>
+      </div>
+      <div class="col-sm">
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row content-justify-center">
+  <div class="col-sm">
+  <br><br><br><br>
+  </div>
+</div>

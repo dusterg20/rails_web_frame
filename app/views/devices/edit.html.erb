@@ -1,0 +1,89 @@
+<% provide(:title, "Update Device") %>
+<div class="row content-justify-center">
+  <div class="col-sm-3">
+  </div>
+  <div class="col-md-5 shadow p-3 mb-5 bg-white rounded">
+    <div class="card text-center">
+      <div class="card-header text-white bg-primary text-center">
+        <h4>Update Device</h4>
+      </div>
+      <div class="card-body text-center">
+        <%= simple_form_for(@device, html: { class: 'form-inline' }) do |f| %>
+        <table class="card-table table">
+          <tr>
+            <td class="text-left">
+              <%= render 'shared/error_messages', object: f.object %>
+              <%= f.label :dev_name, "Device Name"%>
+              <%= f.text_field :dev_name, label: false, error: 'Device Name Required' %>
+            </td>
+          </tr>
+          <tr>
+            <td class="text-left">
+              <%= f.label :rpi, "Device RPI", style: 'display: block;' %>
+              <%= f.association(:rpi, collection: @rpi_select, include_blank: false, label: false) %>
+            </td>
+          </tr>
+          <tr>
+            <td class="text-left">
+              <%= f.label :dev_location, "Device Location"%>
+              <%= f.text_field :dev_location, label: false %>
+            </td>
+          </tr>
+          <tr>
+            <td class="text-left">
+              <%= f.label :dev_input_signal, "Device Input Signaling Type", style: 'display: block;' %>
+              <%= f.input(:dev_input_signal, collection: ["Relay", "Mosfet", "DHT22"], :prompt => true, label: false) %>
+            </td>
+          </tr>
+          <tr>
+            <td class="text-left">
+              <%= f.label :dev_pin_count, "Device Total Pin Count" %>
+              <%= f.text_field :dev_pin_count, label: false %>
+            </td>
+          </tr>
+          <tr>
+            <td class="text-left">
+              <%= f.label :dev_pin1, "Pin 1 Address" %>
+              <%= f.text_field :dev_pin1, label: false %>
+            </td>
+          </tr>
+          <tr>
+            <td class="text-left">
+              <%= f.label :dev_pin2, "Pin 2 Address" %>
+              <%= f.text_field :dev_pin2, label: false %>
+            </td>
+          </tr>
+          <tr>
+            <td class="text-left">
+              <%= f.label :dev_pin3, "Pin 3 Address" %>
+              <%= f.text_field :dev_pin3, label: false %>
+            </td>
+          </tr>
+          <tr>
+            <td class="text-left">
+              <%= f.label :dev_pin4, "Pin 4 Address" %>
+              <%= f.text_field :dev_pin4, label: false %>
+            </td>
+          </tr>
+          <tr>
+            <td class="text-left">
+              <%= f.label :dev_pin5, "Pin 5 Address" %>
+              <%= f.text_field :dev_pin5, label: false %>
+            </td>
+          </tr>
+          <tr>
+            <td class="text-left">
+              <%= f.label :dev_data, "Does Device Collect Data?" %>
+              <%= f.select(:dev_data, [["Yes", "true"], ["No", "false"]], :prompt => true) %>
+            </td>
+          </tr>
+        </table>
+        <br><br>
+        <%= f.submit "Update Device", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-sm">
+    </div>
+  </div>
+</div>
