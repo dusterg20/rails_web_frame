@@ -25,7 +25,7 @@ gem 'pg',                               '~> 1.1', '>= 1.1.4'
 gem 'bootstrap',                        '~> 4.3.1'
 gem 'bootsnap',                         '>= 1.1.0', require: false
 gem 'popper_js',                        '~> 1.14', '>= 1.14.5'
-gem 'nokogiri',                         '~> 1.10', '>= 1.10.4'
+gem 'nokogiri',                         '~> 1.12'
 gem 'octicons',                         '~> 9.1', '>= 9.1.1'
 gem 'octicons_helper',                  '~> 9.1', '>= 9.1.1'
 gem 'simple_form',                      '~> 5.0.1'
